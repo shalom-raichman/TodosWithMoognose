@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
-import { createUser } from "../services/userService"
+import { createUser, updateUserTodo } from "../services/userService"
+import addTodoDTO from "../DTO/addTodoDTO"
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
@@ -11,3 +12,14 @@ export const registerUser = async (req: Request, res: Response) => {
     }
 }
 
+export const addTodo = async (
+    req: Request<any, any, addTodoDTO>,
+    res: Response) => {
+    try {
+        await updateUserTodo(req.body.userId, req.body.todoTitel)
+        res.status(201).send("todo added successfuly")
+    } catch (err) {
+        res.status(400).send("bad request")
+
+    }
+}

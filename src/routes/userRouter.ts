@@ -1,8 +1,10 @@
 import { Router } from "express"
-import {registerUser} from "../controllers/userController"
+import {addTodo, registerUser} from "../controllers/userController"
 
 const router = Router()
 
 router.post("/register", registerUser)
+
+router.post("/addTodo", addTodo)
 
 export default router
