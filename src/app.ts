@@ -13,6 +13,6 @@ app.use(cookieParser())
 
 connectToMongoos()
 
-app.use("/user", userRouter)
+app.use("/users", userRouter)
 
 app.listen(PORT, (): void => console.log(`Server is up runing on http://localhost:${PORT}`))
